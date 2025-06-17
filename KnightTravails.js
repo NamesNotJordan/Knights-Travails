@@ -4,7 +4,7 @@ export default function KnightMoves(start= [], end=[], useChessNotation = false)
         [-2, -1], [-1, -2], [1, -2], [2, -1]
     ];
     const isValid = (x, y) => x >= 0 && x < 8 && y >= 0 && y < 8;
-    const stringToCoordinates = (string) => string.split(',').Map(Number);
+    const stringToCoordinates = (string) => string.split(',').map(Number);
     const formatToChessNotation = (path) => {
         const letters = 'ABCDEFGH'.split('');
         return path.map(([x,y]) => {
@@ -51,5 +51,5 @@ export default function KnightMoves(start= [], end=[], useChessNotation = false)
     } else{
         console.log(path);
     }
-    console.log(`The knight took ${path.length() -1} moves`);
+    console.log(`The knight took ${path.length -1} moves`);
 }
