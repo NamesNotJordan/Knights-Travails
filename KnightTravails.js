@@ -5,6 +5,14 @@ export default function KnightMoves(start= [], end=[]){
     ];
     const isValid = (x, y) => x >= 0 && x < 8 && y >= 0 && y < 8;
     const stringToCoordinates = (string) => string.split(',').Map(Number);
+    const formatToChessNotation = (path) => {
+        const letters = 'ABCDEFGH'.split('');
+        return path.map(([x,y]) => {
+            let col = letters[x];
+            let row = y+1;
+            return `${col}${row}`;
+        })
+    }
 
 
     const queue = [[...start]];
@@ -38,6 +46,6 @@ export default function KnightMoves(start= [], end=[]){
     }
     path.push(start);
     path.reverse();
-    console.log(path);
+    console.log(formatToChessNotation(path));
     console.log(`The knight took ${path.length() -1} moves`);
 }
