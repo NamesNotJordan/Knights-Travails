@@ -1,4 +1,4 @@
-export default function KnightMoves(start= [], end=[]){
+export default function KnightMoves(start= [], end=[], useChessNotation = false){
     const possibleMoves = [
         [2, 1], [1, 2], [-1, 2], [-2, 1],
         [-2, -1], [-1, -2], [1, -2], [2, -1]
@@ -46,6 +46,10 @@ export default function KnightMoves(start= [], end=[]){
     }
     path.push(start);
     path.reverse();
-    console.log(formatToChessNotation(path));
+    if(useChessNotation){
+        console.log(formatToChessNotation(path));
+    } else{
+        console.log(path);
+    }
     console.log(`The knight took ${path.length() -1} moves`);
 }
